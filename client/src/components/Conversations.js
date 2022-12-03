@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Button, Box, Modal, Fade, Typography } from "@mui/material";
+import {
+  Button,
+  Box,
+  Modal,
+  Fade,
+  Typography,
+  Container,
+  Stack,
+  FormControl,
+  TextField,
+} from "@mui/material";
 
 const style = {
   position: "absolute",
@@ -13,7 +23,7 @@ const style = {
   p: 4,
 };
 
-export default function Conversation() {
+export default function Contacts() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,15 +47,29 @@ export default function Conversation() {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-title" variant="h6" component="h2">
-              Text in a modal
+              Add Conversation
             </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
+            <Container>
+              <Container
+                className="align-items-center d-flex"
+              >
+                <Stack spacing={2}>
+                  <FormControl type="text" required>
+                    <TextField
+                      id="standard-basic"
+                      label="Enter ID"
+                      variant="standard"
+                    />
+                  </FormControl>
+                </Stack>
+                </Container>
+              </Container>
+              <Container style={{ padding: "10px" }}>
+              <Button color="secondary">Add</Button>
+              </Container>
           </Box>
         </Fade>
       </Modal>
     </div>
   );
 }
-
