@@ -13,15 +13,30 @@ import { useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
+// ==========================================================
+// ==========================================================
+// Login Form & Functionality
+// ==========================================================
+// ==========================================================
+
 const Login = () => {
+  // ==========================================================
+  // Use State
+  // ==========================================================
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const toast = useToast();
   const history = useHistory();
 
+  // ==========================================================
+  // Toggle for showing & hiding password
+  // ==========================================================
   const handleClick = () => setShow(!show);
 
+  // ==========================================================
+  // Submit Functionality
+  // ==========================================================
   const submitHandler = async () => {
     if (!email || !password) {
       toast({
@@ -34,6 +49,9 @@ const Login = () => {
       return;
     }
 
+    // ==========================================================
+    // Specifying Headers
+    // ==========================================================
     try {
       const config = {
         headers: {
@@ -54,6 +72,9 @@ const Login = () => {
         position: "bottom",
       });
 
+      // ==========================================================
+      // Setting user info in local storage
+      // ==========================================================
       localStorage.setItem("userInfo", JSON.stringify(data));
       history.push("/chats");
     } catch (err) {
