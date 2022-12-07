@@ -2,6 +2,12 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/User");
 const generateToken = require("../config/generateToken");
 
+
+// ==========================================================
+// ==========================================================
+// Sign Up Functionality
+// ==========================================================
+// ==========================================================
 const registerUser = asyncHandler(async () => {
   const { name, email, password } = req.body;
 
@@ -36,6 +42,12 @@ const registerUser = asyncHandler(async () => {
   }
 });
 
+// ==========================================================
+// ==========================================================
+// Login Functionality
+// ==========================================================
+// ==========================================================
+
 const authUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
@@ -52,6 +64,24 @@ const authUser = asyncHandler(async (req, res) => {
         res.status(401);
         throw new err("Invalid email or password");
     }
+});
+
+// ==========================================================
+// ==========================================================
+// Search User Functionality
+// ==========================================================
+// ==========================================================
+
+// /api/user?search= ${name} or ${email}
+const allUsers = asyncHandler(async (req, res) => {
+  const keyword = req.query.search ? {
+    // Mongoose $or operator specifies what we can search for
+    $or: [
+      { name: { $regex: req.query.search, $options: "i" }}, // Using a regex to query name search
+      { email: { $regex: req.query.search, $options: "i"}}, // Using a regex to query email search
+    ],
+  }
+  : {};
 })
 
 module.exports = { registerUser, authUser };
