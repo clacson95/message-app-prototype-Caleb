@@ -12,6 +12,11 @@ import {
 import Login from "../components/authentication/Login";
 import Signup from "../components/authentication/Signup";
 
+// ==========================================================
+// ==========================================================
+// Homepage Setup
+// ==========================================================
+// ==========================================================
 const Homepage = () => {
   return (
     <Container maxW="xl" centerContent>
