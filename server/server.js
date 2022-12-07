@@ -3,6 +3,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/connection");
 const userRoutes = require("./routes/userRoutes");
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 // Create an instance of express
 const app = express();
@@ -17,6 +18,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT;
 
