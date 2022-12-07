@@ -9,6 +9,9 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useToast } from "@chakra-ui/react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Signup = () => {
   const [show, setShow] = useState(false);
@@ -16,10 +19,67 @@ const Signup = () => {
   const [email, setEmail] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
   const [password, setPassword] = useState();
+  const toast = useToast();
+  const history = useHistory();
 
   const handleClick = () => setShow(!show);
 
-  const submitHandler = () => {}
+  const submitHandler = async () => {
+    if (!name || !email || !password || !confirmPassword) {
+      toast({
+        title: "Please fill in all fields",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast({
+        title: "Passwords do not match",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      return;
+    }
+
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+      const { data } = await axios.post(
+        "/api/user",
+        { name, email, password },
+        config
+      );
+
+      toast({
+        title: "Registration successful!",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      history.push("/chats");
+    } catch (err) {
+      toast({
+        title: "An error has occured",
+        description: err.response.data.message,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+    }
+  };
 
   return (
     <VStack spacing="5px" color="gray.600">
@@ -66,11 +126,16 @@ const Signup = () => {
             </Button>
           </InputRightElement>
         </InputGroup>
-        </FormControl>
+      </FormControl>
 
-        <Button colorScheme="whatsapp" width="100%" style={{ marginTop: 15 }} onClick={submitHandler}>
-            Sign Up!
-        </Button>
+      <Button
+        colorScheme="whatsapp"
+        width="100%"
+        style={{ marginTop: 15 }}
+        onClick={submitHandler}
+      >
+        Sign Up!
+      </Button>
     </VStack>
   );
 };
