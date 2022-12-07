@@ -1,11 +1,16 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/message-app",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log(`MongoDB connected: ${conn.connection.host}`);
+  } catch (err) {
+    console.log(`Error: ${err.message}`);
+    process.exit();
   }
-);
+};
 
-module.exports = mongoose.connection;
+module.exports = connectDB;
