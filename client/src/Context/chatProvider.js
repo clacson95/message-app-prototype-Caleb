@@ -6,19 +6,23 @@ const ChatContext = createContext();
 
 const ChatProvider = ({ children }) => {
   const [user, setUser] = useState();
- // const history = useHistory();
+  const [selectedChat, setSelectedChat] = useState();
+  const [chats, setChats] = useState();
+  // const history = useHistory();
 
   // useEffect(() => {
-    // Grabbing the user info from local storage that gets set during the login and signup process
+  // Grabbing the user info from local storage that gets set during the login and signup process
   //  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   //  setUser(userInfo);
 
- //   if (!userInfo) history.push("/");
+  //   if (!userInfo) history.push("/");
 
- // }, [history]);
+  // }, [history]);
 
   return (
-    <ChatContext.Provider value={{ user, setUser }}>
+    <ChatContext.Provider
+      value={{ user, setUser, selectedChat, setSelectedChat, chats, setChats }}
+    >
       {children}
     </ChatContext.Provider>
   );
