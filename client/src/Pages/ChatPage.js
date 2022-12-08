@@ -1,10 +1,24 @@
-import React  from 'react';
-// import axios from "axios";
+import { Box, Spacer, Stack } from "@chakra-ui/react";
+import React from "react";
+import { ChatState } from "../Context/chatProvider";
+import SideDrawer from "../components/elements/SideDrawer";
+import MyChats from "../components/MyChats";
+import ChatWindow from "../components/ChatWindow";
 
 const ChatPage = () => {
-  return (
-    <div>Chat Page</div>
-  )
-}
+  const { user } = ChatState();
 
-export default ChatPage
+  return (
+    <div style={{ width: "100%" }}>
+      {<SideDrawer />}
+      <Box d="flex" justifyContent="space-between" width="100%" height="91.5vh" padding="10px" >
+        <Stack spacing="90%" direction="row">
+        {<MyChats />}
+        {<ChatWindow />}
+        </Stack>
+      </Box>
+    </div>
+  );
+};
+
+export default ChatPage;

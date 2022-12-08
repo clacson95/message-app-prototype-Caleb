@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Container,
   Box,
@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import Login from "../components/authentication/Login";
 import Signup from "../components/authentication/Signup";
+import { useHistory } from "react-router-dom";
 
 // ==========================================================
 // ==========================================================
@@ -18,6 +19,17 @@ import Signup from "../components/authentication/Signup";
 // ==========================================================
 // ==========================================================
 const Homepage = () => {
+  // ==========================================================
+  // Local Storage
+  // ==========================================================
+  const history = useHistory();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+    // If the user is logged in, push them to the chats page
+    if (user) history.push("/chats");
+  }, [history]);
+
   return (
     <Container maxW="xl" centerContent>
       <Box
