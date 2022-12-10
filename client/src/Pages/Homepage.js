@@ -48,7 +48,7 @@ const Homepage = () => {
           fontFamily="Work Sans"
           color="gray.600"
         >
-          MyloChat
+          MyloChat ฅ^•ﻌ•^ฅ
         </Text>
       </Box>
 
