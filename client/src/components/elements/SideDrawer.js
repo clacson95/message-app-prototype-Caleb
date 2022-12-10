@@ -16,6 +16,7 @@ import {
   DrawerBody,
   Input,
   useToast,
+  Spinner,
 } from "@chakra-ui/react";
 import { EmailIcon, Search2Icon } from "@chakra-ui/icons";
 import { ChatState } from "../../Context/chatProvider";
@@ -79,31 +80,30 @@ const SideDrawer = () => {
   };
 
   const accessChat = async (userId) => {
-try {
-    setLoadingChat(true);
+    try {
+      setLoadingChat(true);
 
-    const config = {
+      const config = {
         Headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${user.token}`,
+          "Content-type": "application/json",
+          Authorization: `Bearer ${user.token}`,
         },
-    }
-    const { data } = await axios.post("/api/chat", {userId}, config);
-    setSelectedChat(data);
-    setLoadingChat(false);
-    onClose();
-    
-} catch (error) {
-    toast({
+      };
+      const { data } = await axios.post("/api/chat", { userId }, config);
+      if (!chats.find((c) => c._id === data._d)) setSelectedChat([data, ...chats]);
+      setLoadingChat(false);
+      onClose();
+    } catch (error) {
+      toast({
         title: "Unable to fetch chat",
         description: error.message,
         status: "error",
         duration: 5000,
         isClosable: true,
         position: "bottom-left",
-    })
-}
-  }
+      });
+    }
+  };
 
   return (
     <>
@@ -160,17 +160,17 @@ try {
               </Button>
             </Box>
             {loading ? (
-                <Loading />
+              <Loading />
             ) : (
-                searchResult?.map(user => (
-                    <UserListItem 
-                    key={user._id}
-                    user={user}
-                    handleFunction={() => accessChat(user._id)}
-                    />
-                ))
-            )
-            }
+              searchResult?.map((user) => (
+                <UserListItem
+                  key={user._id}
+                  user={user}
+                  handleFunction={() => accessChat(user._id)}
+                />
+              ))
+            )}
+            {loadingChat && <Spinner ml="auto" d="flex" />}
           </DrawerBody>
         </DrawerContent>
       </Drawer>
