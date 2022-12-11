@@ -7,7 +7,7 @@ import Loading from "./Loading";
 import { getSender } from "../config/ChatFunctions";
 import GroupChatModal from "./elements/GroupChatModal";
 
-const MyChats = () => {
+const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
 
@@ -38,7 +38,7 @@ const MyChats = () => {
   useEffect(() => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     allChats();
-  }, []);
+  }, [fetchAgain]);
 
   return (
     <Box
@@ -67,6 +67,7 @@ const MyChats = () => {
         <GroupChatModal>
           <Button
             d="flex"
+            ml="5%"
             fontSize={{ base: "17px", md: "10px", lg: "17px" }}
             rightIcon={<AddIcon />}
           >
