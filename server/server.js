@@ -14,9 +14,13 @@ connectDB();
 
 app.use(express.json());
 
+// ==========================================================
+// Routing
+// ==========================================================
 app.use(userRoutes);
 app.use(chatRoutes);
 app.use(messageRoutes);
+// ==========================================================
 
 app.use(notFound);
 app.use(errorHandler);
@@ -28,6 +32,11 @@ const server = app.listen(PORT, () => {
   console.log(`API server running on ${PORT}`);
 });
 
+// ==========================================================
+// ==========================================================
+// Socket.io
+// ==========================================================
+// ==========================================================
 const io = require("socket.io")(server, {
   // If a user hasn't sent anything in 60 seconds, close the connection to save the bandwidth
   pingTimeout: 60000,
@@ -74,3 +83,4 @@ io.on("connection", (socket) => {
     });
   });
 });
+// ==========================================================
