@@ -16,7 +16,16 @@ import axios from "axios";
 import UserListItem from "../Users/UserListItem";
 import UserItem from "../Users/UserItem";
 
+// ==========================================================
+// ==========================================================
+// Group Chat Functionality
+// ==========================================================
+// ==========================================================
+
 const GroupChatModal = ({ children }) => {
+  // ==========================================================
+  // Use State Setup
+  // ==========================================================
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [groupChatName, setGroupChatName] = useState();
   const [selectedUsers, setSelectedUsers] = useState([]);
@@ -28,6 +37,9 @@ const GroupChatModal = ({ children }) => {
 
   const { user, chats, setChats } = ChatState();
 
+  // ==========================================================
+  // Search for users to add
+  // ==========================================================
   const handleSearch = async (query) => {
     setSearch(query);
     if (!query) {
@@ -55,6 +67,9 @@ const GroupChatModal = ({ children }) => {
     }
   };
 
+  // ==========================================================
+  // Create the group
+  // ==========================================================
   const handleSubmit = async () => {
     if (!groupChatName || !selectedUsers) {
       toast({
@@ -88,23 +103,29 @@ const GroupChatModal = ({ children }) => {
         duration: 5000,
         isClosable: true,
         position: "bottom",
-      })
+      });
     } catch (error) {
-        toast({
-            title: "Failed to create group",
-            description: error.response.data,
-            status: "error",
-            duration: 5000,
-            isClosable: true,
-            position: "bottom",
-        })
+      toast({
+        title: "Failed to create group",
+        description: error.response.data,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
     }
   };
 
+  // ==========================================================
+  // Remove a user from the group
+  // ==========================================================
   const handleDelete = (deleteUser) => {
     setSelectedUsers(selectedUsers.filter((sel) => sel._id !== deleteUser._id));
   };
 
+  // ==========================================================
+  // Add a user to the group
+  // ==========================================================
   const handleGroup = (userToAdd) => {
     if (selectedUsers.includes(userToAdd)) {
       toast({
@@ -118,6 +139,10 @@ const GroupChatModal = ({ children }) => {
     }
     setSelectedUsers([...selectedUsers, userToAdd]);
   };
+
+  // ==========================================================
+  // Output
+  // ==========================================================
 
   return (
     <>
