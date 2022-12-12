@@ -23,6 +23,9 @@ const ENDPOINT = "http://localhost:3000";
 var socket, selectedChatCompare;
 
 function SingleChat({ fetchAgain, setFetchAgain }) {
+  // ==========================================================
+  // Use State Setup
+  // ==========================================================
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState();
@@ -30,19 +33,25 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
   const [typing, setTyping] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
 
+  // ==========================================================
+  // Importing options from Lottie JSON
+  // ==========================================================
   const defaultOptions = {
     loop: true,
     autoplay: true,
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
-    }
-  }
+    },
+  };
 
   const { user, selectedChat, setSelectedChat } = ChatState();
 
   const toast = useToast();
 
+  // ==========================================================
+  // Initializing Socket.io
+  // ==========================================================
   useEffect(() => {
     socket = io(ENDPOINT);
     socket.emit("setup", user);
@@ -51,6 +60,11 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
     socket.on("stop typing", () => setIsTyping(false));
   }, []);
 
+  // ==========================================================
+  // ==========================================================
+  // Get Messages Functionality
+  // ==========================================================
+  // ==========================================================
   const fetchMessages = async () => {
     if (!selectedChat) {
       return;
@@ -70,7 +84,9 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
       setMessages(data);
       setLoading(false);
 
+      // Socket.io
       socket.emit("join chat", selectedChat._id);
+      // ==========================================================
     } catch (error) {
       toast({
         title: "Error Occured",
@@ -88,6 +104,9 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
     selectedChatCompare = selectedChat;
   }, [selectedChat]);
 
+  // ==========================================================
+  // Socket for receiving a new message
+  // ==========================================================
   useEffect(() => {
     socket.on("message received", (newMessageReceived) => {
       if (
@@ -101,8 +120,14 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
     });
   });
 
+  // ==========================================================
+  // ==========================================================
+  // Send Message Functionality
+  // ==========================================================
+  // ==========================================================
   const sendMessage = async (event) => {
     if (event.key === "Enter" && newMessage) {
+      // Socket for typing
       socket.emit("stop typing", selectedChat._id);
       try {
         const config = {
@@ -119,8 +144,10 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
           },
           config
         );
+        // Socket for sending a new message
         socket.emit("new message", data);
         setMessages([...messages, data]);
+        // ==========================================================
       } catch (error) {
         toast({
           title: "Error Occured",
@@ -134,13 +161,21 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
     }
   };
 
+  // ==========================================================
+  // ==========================================================
+  // Typing Functionality
+  // ==========================================================
+  // ==========================================================
   const typingHandler = (e) => {
     setNewMessage(e.target.value);
+    // If the socket is not connected, ignore this function
     if (!socketConnected) return;
+    // Or...
     if (!typing) {
       setTyping(true);
       socket.emit("typing", selectedChat._id);
     }
+    // Functionality for when and when not to display typing animation
     let stoppedTyping = new Date().getTime();
     var timerLength = 3000;
     setTimeout(() => {
@@ -153,6 +188,10 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
       }
     }, timerLength);
   };
+
+  // ==========================================================
+  // Output
+  // ==========================================================
 
   return (
     <>
@@ -212,12 +251,17 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
               </div>
             )}
             <FormControl onKeyDown={sendMessage} isRequired mt={3}>
-              {isTyping ? <div>
-                <Lottie 
-                  options={defaultOptions}
-                  width={70} 
-                  style={{ marginBottom: 15, marginLeft: 0 }}/>
-              </div> : <></>}
+              {isTyping ? (
+                <div>
+                  <Lottie
+                    options={defaultOptions}
+                    width={70}
+                    style={{ marginBottom: 15, marginLeft: 0 }}
+                  />
+                </div>
+              ) : (
+                <></>
+              )}
 
               <Input
                 variant="filled"

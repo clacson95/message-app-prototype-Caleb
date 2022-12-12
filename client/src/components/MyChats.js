@@ -7,12 +7,18 @@ import Loading from "./Loading";
 import { getSender } from "../config/ChatFunctions";
 import GroupChatModal from "./elements/GroupChatModal";
 
+// ==========================================================
+// Load chats and the users in them
+// ==========================================================
 const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
 
   const toast = useToast();
 
+  // ==========================================================
+  // Load all chats
+  // ==========================================================
   const allChats = async () => {
     try {
       const config = {
@@ -39,6 +45,10 @@ const MyChats = ({ fetchAgain }) => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     allChats();
   }, [fetchAgain]);
+
+  // ==========================================================
+  // Output
+  // ==========================================================
 
   return (
     <Box
