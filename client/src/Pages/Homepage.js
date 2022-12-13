@@ -15,6 +15,7 @@ import {
 import Login from "../components/authentication/Login";
 import Signup from "../components/authentication/Signup";
 import { useHistory } from "react-router-dom";
+import Footer from '../components/Footer';
 
 // ==========================================================
 // ==========================================================
@@ -90,6 +91,9 @@ const Homepage = () => {
           </TabPanels>
         </Tabs>
       </Box>
+
+      <Footer />
+
     </Container>
   );
 };
