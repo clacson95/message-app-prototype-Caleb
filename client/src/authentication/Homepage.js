@@ -9,8 +9,8 @@ import {
   TabPanel,
   TabPanels,
 } from "@chakra-ui/react";
-import Login from "../components/authentication/Login";
-import Signup from "../components/authentication/Signup";
+import Login from "./Login";
+import Signup from "./Signup";
 import { useHistory } from "react-router-dom";
 
 // ==========================================================
