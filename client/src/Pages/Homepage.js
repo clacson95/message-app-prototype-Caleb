@@ -15,7 +15,6 @@ import {
 import Login from "../components/authentication/Login";
 import Signup from "../components/authentication/Signup";
 import { useHistory } from "react-router-dom";
-import mylo from '../image/hero-mylo.png';
 
 // ==========================================================
 // ==========================================================
