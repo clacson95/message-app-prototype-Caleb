@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route } from "react-router-dom";
-import Homepage from "./Pages/Homepage";
-import ChatPage from "./Pages/ChatPage";
+import Homepage from "./authentication/authentication/Homepage";
+import ChatPage from "./authentication/ChatPage";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 
