@@ -5,7 +5,6 @@ import {
   Container,
   HStack,
   Image,
-  Text,
   Tab,
   Tabs,
   TabList,
@@ -49,27 +48,19 @@ const Homepage = () => {
         <HStack
           spacing='-20px'
         >
-          <Text
+          {/* <Text
             as="b"
             fontSize="4xl"
             fontFamily="Work Sans"
             color="gray.200"
           >
             Mylo
-          </Text>
+          </Text> */}
           <Image 
             align='50% 50%'
-            src={require('../image/hero-mylo.png')}
+            src={require('../image/hero.png')}
             alt='Mylo mascot image'
           />
-          <Text
-            as="b"
-            fontSize="4xl"
-            fontFamily="Work Sans"
-            color="gray.200"
-          >
-            Chat
-          </Text>
         </HStack>
       </Center>
 
