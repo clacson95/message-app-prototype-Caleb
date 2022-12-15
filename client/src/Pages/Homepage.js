@@ -3,7 +3,6 @@ import {
   Box,
   Center,
   Container,
-  HStack,
   Image,
   Tab,
   Tabs,
@@ -35,9 +34,9 @@ const Homepage = () => {
 
   return (
     <Container maxW="xl" centerContent>
+      
+      {/* header */}
       <Center
-        d="flex"
-        justifyContent="center"
         p={3}
         bg={"#8BAD94"}
         w="100%"
@@ -45,25 +44,14 @@ const Homepage = () => {
         borderRadius="lg"
         borderWidth="1px"
       >
-        <HStack
-          spacing='-20px'
-        >
-          {/* <Text
-            as="b"
-            fontSize="4xl"
-            fontFamily="Work Sans"
-            color="gray.200"
-          >
-            Mylo
-          </Text> */}
-          <Image 
-            align='50% 50%'
-            src={require('../image/hero.png')}
-            alt='Mylo mascot image'
-          />
-        </HStack>
+        <Image 
+          align='50% 50%'
+          src={require('../image/hero.png')}
+          alt='Mylo mascot image'
+        />
       </Center>
 
+      {/* login/signup */}
       <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
         <Tabs variant="soft-rounded" colorScheme="green">
           <TabList mb="1em">
