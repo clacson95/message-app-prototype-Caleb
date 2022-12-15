@@ -201,7 +201,6 @@ const About = () => {
       </Container>
 
     <Box 
-      
     >
       <Footer />
     </Box>

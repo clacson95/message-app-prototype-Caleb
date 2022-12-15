@@ -7,17 +7,15 @@ import {
   Image,
   Stack,
   Text,
-  useColorModeValue,
 } from '@chakra-ui/react';
 import { FaGithub } from 'react-icons/fa';
 
 const Logo = () => {
   return (
     <Image  
-      
       viewBox="0 0 120 28"      
       align='50% 50%'
-      src={require('../image/logo.png')}
+      src={require('../image/footer.png')}
       alt='Mylo logo image'
       />
   );
@@ -26,7 +24,7 @@ const Logo = () => {
 const Footer = () => (
     <Box
       bg="#6b9e7c"
-      color={useColorModeValue('gray.700', 'gray.200')}>
+    >
       <Container
         as={Stack}
         maxW={'6xl'}

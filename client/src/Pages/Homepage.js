@@ -38,7 +38,7 @@ const Homepage = () => {
       {/* header */}
       <Center
         p={3}
-        bg={"#8BAD94"}
+        bg="#6b9e7c"
         w="100%"
         m="40px 0 15px 0"
         borderRadius="lg"
@@ -70,8 +70,6 @@ const Homepage = () => {
           </TabPanels>
         </Tabs>
       </Box>
-
-      <Footer />
 
     </Container>
   );
