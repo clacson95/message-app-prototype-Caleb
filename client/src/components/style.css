@@ -16,8 +16,9 @@ Add a black background color to the top navigation / */
 
 /* Style the links inside the navigation bar / */
 .topnav a {
-  background-color: #d1c8c3;
-  color: darkgreen;
+  background-color: white;
+  /* change the text color to gold, get code from Joyce */
+  color: #B59410;
   float: right;
   text-align: center;
   padding: 10px 15px;
@@ -28,8 +29,8 @@ Add a black background color to the top navigation / */
 }
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #d1c8c3;
+    color: #6b9e7c;
   }
 
 

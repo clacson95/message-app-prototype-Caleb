@@ -1,14 +1,11 @@
 import React from "react";
 import {
   Box,
-  ButtonGroup,
   Container,
-  IconButton,
   Image,
   Stack,
   Text,
 } from '@chakra-ui/react';
-import { FaGithub } from 'react-icons/fa';
 
 const Logo = () => {
   return (
@@ -35,11 +32,6 @@ const Footer = () => (
         align={{ base: 'center', md: 'center' }}>
         <Logo />
         <Text fontSize="lg" color="black">© 2022 Chakra Templates. All rights reserved</Text>
-        <Stack>
-          <ButtonGroup variant="ghost">
-            <IconButton as="a" href="https://github.com/StephCambria/message-app-prototype" aria-label="GitHub" icon={<FaGithub fontSize="2.5rem"   />} />
-          </ButtonGroup>
-        </Stack>
       </Container>
     </Box>
 );

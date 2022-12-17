@@ -30,7 +30,7 @@ const About = () => {
         {/* -------------------------------------------------------- */}
         <Center
           p={3}
-          bg={"#8BAD94"}
+          bg={"#6b9e7c"}
           w="100%"
           m="40px 0 15px 0"
           borderRadius="lg"
@@ -98,14 +98,15 @@ const About = () => {
           </div>
         </Box>
 
+        {/* -------------------------------------------------------- */}
+        {/* ------------------------- Bios ------------------------- */}
+        {/* -------------------------------------------------------- */}
 
-        {/* about us cards */}
-        
         <Box 
-          bg="white" 
+          bg="#d1c8c3" 
           w="100%" 
           p={4} 
-          m="20px 0 15px 0"
+          m="20px 0 35px 0"
           borderRadius="lg" 
           borderWidth="1px" 
           textAlign="center"
@@ -115,10 +116,32 @@ const About = () => {
             templateColumns="repeat(2, 1fr)" 
             gap={6}>
 
-            <GridItem bg="white" p="4" borderRadius="lg" borderWidth="1px" textAlign="center">
+            {/* ------------------- Stephanie Cambria ------------------ */}
+
+            <GridItem 
+              bg="white" 
+              p="4" 
+              borderRadius="lg" 
+              borderWidth="1px" 
+              textAlign="center"
+            >
+
+            <Image
+              borderRadius='full'
+              position="relative"
+              top="3" 
+              bottom="3"
+              left="8"
+              mb={7}
+              boxSize='150px'
+              mr={14}
+              src={require('../image/Stephanie.png')}
+              alt="Stephanie Cambria's bio picture"
+            />
+
               <Heading size='md'>Stephanie Cambria</Heading>
               
-              <Text className="title">Back-End</Text>
+              <Text className="title" color="#B59410">Back-End Developer</Text>
               <Center
                 justify="space-between"
                 direction="row"
@@ -134,11 +157,74 @@ const About = () => {
                 </ButtonGroup>
               </Center>
           </GridItem>
+
+          {/* ------------------- Caleb Lacson ------------------ */}
+
+          <GridItem 
+              bg="white" 
+              p="4" 
+              borderRadius="lg" 
+              borderWidth="1px" 
+              textAlign="center"
+            >
+
+            <Image
+              borderRadius='full'
+              position="relative"
+              top="3" 
+              bottom="3"
+              left="8"
+              mb={7}
+              boxSize='150px'
+              mr={14}
+              src={require('../image/Caleb.png')}
+              alt="Caleb Lacson's bio picture"
+            />
+              <Heading size='md'>Caleb Lacson</Heading>
+              
+              <Text className="title" color="#B59410">Front-End Developer</Text>
+              <Center
+                justify="space-between"
+                direction="row"
+                align="center"
+              >
+                <ButtonGroup variant="ghost">
+                  <IconButton
+                    as="a"
+                    href="https://github.com/clacson95"
+                    aria-label="GitHub"
+                    icon={<FaGithub fontSize="1.6rem" />}
+                  />
+                </ButtonGroup>
+              </Center>
+          </GridItem>
           
-          <GridItem bg="white" p="4" borderRadius="lg" borderWidth="1px" textAlign="center">
+          {/* -------------------- Tyler Porter ------------------- */}
+
+            <GridItem 
+              bg="white" 
+              p="4" 
+              borderRadius="lg" 
+              borderWidth="1px" 
+              textAlign="center"
+            >
+
+            <Image
+              borderRadius='full'
+              position="relative"
+              top="3" 
+              bottom="3"
+              left="8"
+              mb={7}
+              boxSize='150px'
+              mr={14}
+              src={require('../image/Tyler.png')}
+              objectFit='cover'
+              alt="Tyler Porter's bio picture"
+            />
               <Heading size='md'>Tyler Porter</Heading>
               
-              <Text className="title">Back-End</Text>
+              <Text className="title" color="#B59410">Back-End Developer</Text>
               <Center
                 justify="space-between"
                 direction="row"
@@ -155,10 +241,32 @@ const About = () => {
               </Center>
           </GridItem>
 
-          <GridItem bg="white" p="4" borderRadius="lg" borderWidth="1px" textAlign="center">
+          {/* ------------------- Joyce Chen ------------------ */}
+
+          <GridItem 
+              bg="white" 
+              p="4" 
+              borderRadius="lg" 
+              borderWidth="1px" 
+              textAlign="center"
+            >
+
+            <Image
+              borderRadius='full'
+              position="relative"
+              top="3" 
+              bottom="3"
+              left="8"
+              mb={7}
+              boxSize='150px'
+              mr={14}
+              src={require('../image/Joyce.png')}
+              objectFit='cover'
+              alt="Joyce Chen's bio picture"
+            />
               <Heading size='md'>Joyce Chen</Heading>
               
-              <Text className="title">Front-End</Text>
+              <Text className="title" color="#B59410">Front-End Developer</Text>
               <Center
                 justify="space-between"
                 direction="row"
@@ -168,26 +276,6 @@ const About = () => {
                   <IconButton
                     as="a"
                     href="https://github.com/Joyce750526"
-                    aria-label="GitHub"
-                    icon={<FaGithub fontSize="1.6rem" />}
-                  />
-                </ButtonGroup>
-              </Center>
-          </GridItem>
-
-          <GridItem bg="white" p="4" borderRadius="lg" borderWidth="1px" textAlign="center">
-              <Heading size='md'>Caleb Lacson</Heading>
-              
-              <Text className="title">Front-End</Text>
-              <Center
-                justify="space-between"
-                direction="row"
-                align="center"
-              >
-                <ButtonGroup variant="ghost">
-                  <IconButton
-                    as="a"
-                    href="https://github.com/clacson95"
                     aria-label="GitHub"
                     icon={<FaGithub fontSize="1.6rem" />}
                   />
