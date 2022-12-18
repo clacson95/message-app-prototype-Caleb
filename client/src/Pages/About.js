@@ -141,7 +141,8 @@ const About = () => {
 
               <Heading size='md'>Stephanie Cambria</Heading>
               
-              <Text className="title" color="#B59410">Back-End Developer</Text>
+              <Text 
+              className="title" color="#B59410">Back-End Developer</Text>
               <Center
                 justify="space-between"
                 direction="row"

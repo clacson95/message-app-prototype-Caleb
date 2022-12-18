@@ -17,7 +17,6 @@ Add a black background color to the top navigation / */
 /* Style the links inside the navigation bar / */
 .topnav a {
   background-color: white;
-  /* change the text color to gold, get code from Joyce */
   color: #B59410;
   float: right;
   text-align: center;
