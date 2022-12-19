@@ -10,6 +10,7 @@ import {
   IconButton,
   Image,
   Text,
+  VStack,
 } from "@chakra-ui/react";
 import { FaGithub } from 'react-icons/fa';
 import Footer from '../components/Footer';
@@ -43,36 +44,6 @@ const About = () => {
           />
         </Center>
 
-       
-        {/* -------------------------------------------------------- */}
-        {/* ---------------------- Our Mission -------------------- */}
-        {/* -------------------------------------------------------- */}
-        
-        <Box 
-          bg="#474e5d" 
-          w="100%" 
-          p="15px 0 5px 0"
-          m="15px 0 15px 0"
-          borderRadius="lg" 
-          borderWidth="1px"
-        >
-          <div class="about-section" align="left">
-            <h1>
-              <strong>Our Mission</strong>
-            </h1>
-            <br />
-            <p>
-              <strong>MyloChat</strong> was inspired by Bobby’s homeless cat — 
-              Our mission is to spread awareness about animals that are
-              endangered, neglected, mistreated, in need of food and medical
-              care, or otherwise without homes A Free chat service; Donations
-              are welcomed — 100% of all funds not used to pay for the chat
-              service are donated to animal shelters, endangered animal
-              conservation,
-            </p>
-          </div>
-        </Box>
-
         {/* -------------------------------------------------------- */}
         {/* ----------------------- About Us ----------------------- */}
         {/* -------------------------------------------------------- */}
@@ -91,10 +62,57 @@ const About = () => {
             </h1>
             <br />
             <p>
-              <strong>MyloChat</strong> is a chat messaging APP designed with a
-              love for furry felines in mind. We create a platform where you can
-              find your Mylo to start a converstaion!
+              Inspired by Bobby’s homeless cat Mylo, <strong>MyloChat</strong> is a chat-messaging application created with a love for furry felines in mind. Clean, sleek, and compact, MyloChat is designed to give you a straightforward experience that lets you get right to chatting with your friends.
             </p>
+          </div>
+        </Box>
+       
+        {/* -------------------------------------------------------- */}
+        {/* ---------------------- Our Mission -------------------- */}
+        {/* -------------------------------------------------------- */}
+        
+        <Box 
+          bg="#474e5d" 
+          w="100%" 
+          p="15px 0 5px 0"
+          m="15px 0 15px 0"
+          borderRadius="lg" 
+          borderWidth="1px"
+        >
+          <div class="about-section" align="left">
+            <h1>
+              <strong>Our Mission</strong>
+            </h1>
+            <br />
+            <VStack>
+              <p>
+                Whether they are cuddly companions that we keep in our homes, or majestic wildlife that we view from afar, animals are valuable participants of our world. They bring us comfort, teach us about compassion, selflessness, and beauty, and are essential components in this worldwide ecosystem we call Earth.
+              </p>
+              <br />
+              <p>
+                Despite this, pets and wildlife are in danger around the world. Over 16,000 animal species are endangered with extinction. Every year, at least 10 million animals die from abuse and 1.5 million animals at animal shelters are euthanized in the US alone. About 115 million animals are used in laboratory testing.
+              </p>
+              <br />
+              <p>
+                But there is good news. Out of all households in the US, approximately 44% own a dog and 35% own a cat. About half of people with a pet learn about their pet and how to take care of them by word of mouth. 
+              </p>
+              <br />
+              <p> 
+                Our mission at MyloChat is to spread awareness about animals that are endangered, abused, neglected, or otherwise without homes. 
+              </p>
+              <br />
+              <p>
+                As a new FREE-to-use chat service, <strong>MyloChat</strong>  currently is funded entirely by your donations. However, we take our mission and the importance of animal life seriously, and commit to giving away 100% of all excess donations to animal conservation and protection organizations, such as the Humane Society of the United States (HSUS) or The American Society for the Prevention of Cruelty to Animals (ASPCA).
+              </p>
+              <br />
+              <p>
+                Through mass communication and invested effort, we CAN make a difference.   Make a donation, tell others you know, or get involved with businesses and organizations that are actively making an impact. With your help, we can emphasize the importance of animals and the value they bring to our world. 
+              </p>
+              <br />
+              <p>
+                Will you help us tell the world about the value of animals? Will you help us take care of animals like Mylo?
+              </p>
+            </VStack>
           </div>
         </Box>
 
