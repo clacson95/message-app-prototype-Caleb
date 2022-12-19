@@ -13,6 +13,8 @@ import {
 import Login from "../components/authentication/Login";
 import Signup from "../components/authentication/Signup";
 import { useHistory } from "react-router-dom";
+import Nav from "../components/Nav";
+import "../components/style.css";
 
 // ==========================================================
 // ==========================================================
@@ -32,9 +34,19 @@ const Homepage = () => {
   }, [history]);
 
   return (
+    <div className="aboutbody">
+
+      {/* -------------------------------------------------------- */}
+      {/* ------------------------- Nav -------------------------- */}
+      {/* -------------------------------------------------------- */}
+      <Nav />
+
     <Container maxW="xl" centerContent>
       
-      {/* header */}
+      {/* -------------------------------------------------------- */}
+      {/* ----------------------- Header ------------------------- */}
+      {/* -------------------------------------------------------- */}
+
       <Center
         p={3}
         bg={"#6b9e7c"}
@@ -50,7 +62,10 @@ const Homepage = () => {
         />
       </Center>
 
-      {/* login/signup */}
+      {/* -------------------------------------------------------- */}
+      {/* -------------------- login/signup ---------------------- */}
+      {/* -------------------------------------------------------- */}
+
       <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
         <Tabs variant="soft-rounded" colorScheme="green">
           <TabList mb="1em">
@@ -71,6 +86,7 @@ const Homepage = () => {
       </Box>
 
     </Container>
+    </div>
   );
 };
 
