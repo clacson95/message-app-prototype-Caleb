@@ -9,6 +9,7 @@ import {
   Heading,
   IconButton,
   Image,
+  Link,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -51,7 +52,7 @@ const About = () => {
         <Box 
           bg="#474e5d" 
           w="100%" 
-          p="15px 0 15px 0"
+          p="15px 0 0px 0"
           m="15px 0 15px 0"
           borderRadius="lg" 
           borderWidth="1px"
@@ -66,12 +67,12 @@ const About = () => {
             </p>
           </div>
         </Box>
-       
+
         {/* -------------------------------------------------------- */}
         {/* ---------------------- Our Mission -------------------- */}
         {/* -------------------------------------------------------- */}
-        
-        <Box 
+        {/* top */}
+        {/* <Box 
           bg="#474e5d" 
           w="100%" 
           p="15px 0 5px 0"
@@ -85,36 +86,38 @@ const About = () => {
             </h1>
             <br />
             <VStack>
-              <p>
+              <Text>
                 Whether they are cuddly companions that we keep in our homes, or majestic wildlife that we view from afar, animals are valuable participants of our world. They bring us comfort, teach us about compassion, selflessness, and beauty, and are essential components in this worldwide ecosystem we call Earth.
-              </p>
+              </Text>
               <br />
-              <p>
+              <Text>
                 Despite this, pets and wildlife are in danger around the world. Over 16,000 animal species are endangered with extinction. Every year, at least 10 million animals die from abuse and 1.5 million animals at animal shelters are euthanized in the US alone. About 115 million animals are used in laboratory testing.
-              </p>
+              </Text>
               <br />
-              <p>
+              <Text>
                 But there is good news. Out of all households in the US, approximately 44% own a dog and 35% own a cat. About half of people with a pet learn about their pet and how to take care of them by word of mouth. 
-              </p>
+              </Text>
               <br />
-              <p> 
+              <Text> 
                 Our mission at MyloChat is to spread awareness about animals that are endangered, abused, neglected, or otherwise without homes. 
-              </p>
+              </Text>
               <br />
-              <p>
-                As a new FREE-to-use chat service, <strong>MyloChat</strong>  currently is funded entirely by your donations. However, we take our mission and the importance of animal life seriously, and commit to giving away 100% of all excess donations to animal conservation and protection organizations, such as the Humane Society of the United States (HSUS) or The American Society for the Prevention of Cruelty to Animals (ASPCA).
-              </p>
+              <Text>
+                As a new FREE-to-use chat service, <strong>MyloChat</strong> currently is funded entirely by your donations. However, we take our mission and the importance of animal life seriously, and commit to giving away 100% of all excess donations to animal conservation and protection organizations, such as
+                <em> The Humane Society of the United States</em> <Link color="#B59410" href='https://www.humanesociety.org/'> (HSUS) </Link> or <em> The American Society for the Prevention of Cruelty to Animals </em><Link color="#B59410" href='https://www.aspca.org/'> (ASPCA) </Link>.
+              </Text>
               <br />
-              <p>
-                Through mass communication and invested effort, we CAN make a difference.   Make a donation, tell others you know, or get involved with businesses and organizations that are actively making an impact. With your help, we can emphasize the importance of animals and the value they bring to our world. 
-              </p>
+              <Text>
+                Through mass communication and invested effort, we CAN make a difference. Make a donation, tell others you know, or get involved with businesses and organizations that are actively making an impact. With your help, we can emphasize the importance of animals and the value they bring to our world. 
+              </Text>
               <br />
-              <p>
+              <Text>
                 Will you help us tell the world about the value of animals? Will you help us take care of animals like Mylo?
-              </p>
+              </Text>
             </VStack>
           </div>
-        </Box>
+        </Box> */}
+
 
         {/* -------------------------------------------------------- */}
         {/* ------------------------- Bios ------------------------- */}
@@ -303,6 +306,56 @@ const About = () => {
           </GridItem>
 
           </Grid>
+        </Box>
+
+        {/* -------------------------------------------------------- */}
+        {/* ---------------------- Our Mission -------------------- */}
+        {/* -------------------------------------------------------- */}
+        {/* Bottom */}
+        <Box 
+          bg="#474e5d" 
+          w="100%" 
+          p="15px 0 5px 0"
+          m="0px 0 35px 0"
+          borderRadius="lg" 
+          borderWidth="1px"
+        >
+          <div class="about-section" align="left">
+            <h1>
+              <strong>Our Mission</strong>
+            </h1>
+            <br />
+            <VStack>
+              <Text>
+                Whether they are cuddly companions that we keep in our homes, or majestic wildlife that we view from afar, animals are valuable participants of our world. They bring us comfort, teach us about compassion, selflessness, and beauty, and are essential components in this worldwide ecosystem we call Earth.
+              </Text>
+              <br />
+              <Text>
+                Despite this, pets and wildlife are in danger around the world. Over 16,000 animal species are endangered with extinction. Every year, at least 10 million animals die from abuse and 1.5 million animals at animal shelters are euthanized in the US alone. About 115 million animals are used in laboratory testing.
+              </Text>
+              <br />
+              <Text>
+                But there is good news. Out of all households in the US, approximately 44% own a dog and 35% own a cat. About half of people with a pet learn about their pet and how to take care of them by word of mouth. 
+              </Text>
+              <br />
+              <Text> 
+                Our mission at MyloChat is to spread awareness about animals that are endangered, abused, neglected, or otherwise without homes. 
+              </Text>
+              <br />
+              <Text>
+                As a new FREE-to-use chat service, <strong>MyloChat</strong> currently is funded entirely by your donations. However, we take our mission and the importance of animal life seriously, and commit to giving away 100% of all excess donations to animal conservation and protection organizations, such as
+                <em> The Humane Society of the United States</em> <Link color="#B59410" href='https://www.humanesociety.org/'> (HSUS) </Link> or <em> The American Society for the Prevention of Cruelty to Animals </em><Link color="#B59410" href='https://www.aspca.org/'> (ASPCA) </Link>.
+              </Text>
+              <br />
+              <Text>
+                Through mass communication and invested effort, we CAN make a difference. Make a donation, tell others you know, or get involved with businesses and organizations that are actively making an impact. With your help, we can emphasize the importance of animals and the value they bring to our world. 
+              </Text>
+              <br />
+              <Text>
+                Will you help us tell the world about the value of animals? Will you help us take care of animals like Mylo?
+              </Text>
+            </VStack>
+          </div>
         </Box>
 
       </Container>
