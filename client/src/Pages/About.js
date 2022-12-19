@@ -331,7 +331,7 @@ const About = () => {
               </Text>
               <br />
               <Text>
-                Despite this, pets and wildlife are in danger around the world. Over 16,000 animal species are endangered with extinction. Every year, at least 10 million animals die from abuse and 1.5 million animals at animal shelters are euthanized in the US alone. About 115 million animals are used in laboratory testing.
+                Despite this, pets and wildlife are in danger around the world. Over 16,000 animal species are endangered with extinction. Every year, about 115 million animals are used in laboratory testing, and in the US alone, at least 10 million animals die from abuse and 1.5 million animals at animal shelters are euthanized.
               </Text>
               <br />
               <Text>
