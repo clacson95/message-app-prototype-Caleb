@@ -1,14 +1,20 @@
 import React from "react";
-
-// import { Container } from "@chakra-ui/react";
-// import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { useHistory } from "react-router-dom";
+import { Button } from "@chakra-ui/react";
 
 function Nav() {
+
+    const history = useHistory();
+    const logoutHandler = () => {
+        localStorage.removeItem("userInfo");
+        history.push("/");
+      };
   return (
-    <div class="topnav">
+    <div className="topnav">
+      <Button onClick={logoutHandler}>Logout</Button>  
+      <a href="/chats">Chat</a>
       <a href="/about">Donation</a>
       <a href="/about">Story</a>
-
     </div>
   );
 }
